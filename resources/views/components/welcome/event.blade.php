@@ -17,7 +17,7 @@
                         <p class="text-sm text-gray-600">{{ $event->deskripsi_event }}</p>
                         <p class="text-xs">{{ $event->dilaksanakan_oleh }}</p>
                         <p class="text-xs"><span class="text-red-500">Acara berakhir pada
-                                {{ date('d-m-Y', strtotime($event->tgl_selesai)) }}</span></p>
+                                {{ date('d-m-Y', strtotime($event->tanggal_akhir)) }}</span></p>
                     </div>
                     <div class="w-full sm:w-1/4 lg:w-1/4 aspect-square">
                         <img src="{{ asset('images/qrcode.jpg') }}" alt="Foto Acara">
@@ -39,7 +39,7 @@
                             <p class="text-sm text-gray-600">{{ $event->deskripsi_event }}</p>
                             <p class="text-xs">{{ $event->dilaksanakan_oleh }}</p>
                             <p class="text-xs"><span class="text-red-500">Acara berakhir pada
-                                    {{ date('d-m-Y', strtotime($event->tgl_selesai)) }}</span></p>
+                                    {{ date('d-m-Y', strtotime($event->tanggal_akhir)) }}</span></p>
                         </div>
                         <div class="w-full sm:w-1/4 lg:w-1/4 aspect-square">
                             <canvas id="qrcode{{ $event->id }}"></canvas>
@@ -59,7 +59,7 @@
             @endif
         </div>
 
-        <div id="loker" class="w-full lg:w-1/3 p-6 rounded-lg">
+        <div id="loker" class="w-full lg:w-1/3 p-6 p-6 flex flex-col gap-6 rounded-lg">
             <h2 class="text-2xl font-bold mb-4">Loker</h2>
 
             <!-- Display first 3 job listings -->

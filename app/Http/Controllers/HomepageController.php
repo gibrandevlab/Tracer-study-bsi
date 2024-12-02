@@ -12,11 +12,15 @@ class HomepageController extends Controller
     {
         $user = Auth::user();
 
-        // Ambil data event dengan tipe 'event'
-        $events = EventPengembanganKarir::where('tipe_event', 'event')->get();
+        // Ambil data event yang belum selesai
+        $events = EventPengembanganKarir::where('tipe_event', 'event')
+            ->whereDate('tanggal_akhir', '>=', date('Y-m-d'))
+            ->get();
 
-        // Ambil data loker dengan tipe 'loker'
-        $loker = EventPengembanganKarir::where('tipe_event', 'loker')->get();
+        // Ambil data loker yang belum selesai
+        $loker = EventPengembanganKarir::where('tipe_event', 'loker')
+            ->whereDate('tanggal_akhir', '>=', date('Y-m-d'))
+            ->get();
 
         // Mengirimkan data ke view
         return view('pages.welcome', [
