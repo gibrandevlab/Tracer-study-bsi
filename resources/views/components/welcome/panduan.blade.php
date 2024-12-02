@@ -68,7 +68,7 @@
         </div>
 
         <!-- Box 2 -->
-        <div class="w-full md:w-1/2 flex flex-col md:flex-row p-8">
+        <div class="w-full md:w-1/2 flex flex-col md:flex-row p-8 space-y-6 md:space-y-0">
             <!-- Card pertama di kiri -->
             <div class="flex flex-col items-start w-full p-0">
                 <!-- Konten Card dengan ukuran yang sama dengan foto -->
@@ -83,19 +83,17 @@
 
                 <!-- Foto Kotak dengan rasio 1:1 -->
                 <div class="w-full aspect-square">
-                    <img src="{{ asset('images/alumni-1.jpg') }}" alt="Gambar Kartu"
+                    <img src="{{ asset('images/alumni1.jpg') }}" alt="Gambar Kartu"
                         class="object-cover w-full h-full aspect-square">
                 </div>
             </div>
 
             <!-- Card kedua di kanan -->
-            <div class="flex flex-col items-start w-full p-0 mt-6">
+            <div class="flex flex-col items-start w-full p-0 mt-6 md:mt-0">
                 <!-- Foto Kotak dengan rasio 1:1 -->
                 <div class="w-full aspect-square">
-                    <div class="w-full aspect-square">
-                        <img src="{{ asset('images/alumni-2.jpg') }}" alt="Gambar Kartu Kedua"
-                            class="object-cover w-full h-full aspect-square">
-                    </div>
+                    <img src="{{ asset('images/alumni2.jpg') }}" alt="Gambar Kartu Kedua"
+                        class="object-cover w-full h-full aspect-square">
                 </div>
 
                 <!-- Konten Card dengan ukuran yang sama dengan foto -->
@@ -110,6 +108,7 @@
                 </div>
             </div>
         </div>
+
 
     </div>
 
