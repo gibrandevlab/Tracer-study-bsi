@@ -3,10 +3,12 @@
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\GroupChatController;
 use App\Http\Controllers\Dashboard\MemberSettingController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\UserSettingController;
 use App\Http\Controllers\FormQ1Controllers;
+use App\Http\Controllers\Dashboard\EventController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -57,3 +59,14 @@ Route::controller(DashboardController::class)->group(function () {
     Route::get('/dashboard', 'dashboard')->name('dashboard.dashboard');
 });
 
+Route::prefix('dashboard')->group(function () {
+    Route::get('/event/setting', [EventController::class, 'index'])->name('dashboard.events.index');
+    Route::get('/event/create', [EventController::class, 'create'])->name('dashboard.events.create');
+    Route::post('/event/store', [EventController::class, 'store'])->name('dashboard.events.store');
+    Route::get('/event/{event}/edit', [EventController::class, 'edit'])->name('dashboard.events.edit');
+    Route::put('/event/{event}/update', [EventController::class, 'update'])->name('dashboard.events.update');
+    Route::delete('/event/{event}', [EventController::class, 'destroy'])->name('dashboard.events.destroy');
+});
+
+Route::get('/group-chat', [GroupChatController::class, 'index'])->name('group-chat.index');
+Route::post('/group-chat', [GroupChatController::class, 'store'])->name('group-chat.store');

@@ -48,7 +48,7 @@
     <nav class="container h-full py-4 flex justify-between items-center" >
         <!-- Logo Section -->
         <a class="text-3xl font-bold leading-none flex items-center" href="#">
-            <img style="width: 150px" src="{{ asset('images/AlumniNet.png') }}" alt="logo">
+            <img style="width: 150px" src="{{ asset('images/fontbolt-removebg-preview.png') }}" alt="logo">
         </a>
 
         <!-- Mobile Menu Button -->
@@ -94,9 +94,9 @@
                     </svg>
                     <span>Sign In</span>
                 </a>
-                <a href="/login" class="flex flex-row gap-2 py-2 px-4 text-sm text-gray-500 font-semibold rounded-xl transition duration-200 items-center justify-center" style="line-height: 1; text-align: center;">
+                <a href="/register" class="flex flex-row gap-2 py-2 px-4 text-sm text-gray-500 font-semibold rounded-xl transition duration-200 items-center justify-center" style="line-height: 1; text-align: center;">
                     <svg fill="#6b7280" width="20px" height="20px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="#6b7280"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M2,21h8a1,1,0,0,0,0-2H3.071A7.011,7.011,0,0,1,10,13a5.044,5.044,0,1,0-3.377-1.337A9.01,9.01,0,0,0,1,20,1,1,0,0,0,2,21ZM10,5A3,3,0,1,1,7,8,3,3,0,0,1,10,5ZM23,16a1,1,0,0,1-1,1H19v3a1,1,0,0,1-2,0V17H14a1,1,0,0,1,0-2h3V12a1,1,0,0,1,2,0v3h3A1,1,0,0,1,23,16Z"></path></g></svg>
-                    <span>Sign</span>
+                    <span>Sign Up</span>
                 </a>
             </div>
         @endif

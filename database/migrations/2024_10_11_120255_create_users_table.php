@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('password');
             $table->enum('role', ['admin', 'alumni', 'pencari_kerja']);
             $table->enum('status', ['pending', 'approved', 'rejected']);
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }

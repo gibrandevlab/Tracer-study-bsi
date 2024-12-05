@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
             'updated_at' => now(),
         ]);
 
-        for ($i = 1; $i <= 5000; $i++) {
+        for ($i = 1; $i <= 50; $i++) {
             DB::table('users')->insert([
                 'email' => "alumni$i@gmail.com",
                 'password' => Hash::make('password123'),
@@ -594,7 +594,7 @@ class DatabaseSeeder extends Seeder
             'Imam'
         ];
 
-        for ($i = 1; $i <= 5000; $i++) {
+        for ($i = 1; $i <= 50; $i++) {
             $jumlahKata = rand(3, 5);
 
             $nama = [];

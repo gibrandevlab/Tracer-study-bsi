@@ -9,6 +9,111 @@
     <meta name="keywords" content="register, gobana, account">
     @vite('resources/css/app.css')
     <style>
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+
+        .floating-shape {
+            position: absolute;
+            background: linear-gradient(45deg, rgba(59, 130, 246, 0.3), rgba(37, 99, 235, 0.1));
+            border-radius: 50%;
+            filter: blur(10px);
+            z-index: 0;
+            animation: float 20s infinite;
+        }
+
+        .shape-1 {
+            width: 150px;
+            height: 150px;
+            top: 10%;
+            left: 15%;
+            animation-delay: -2s;
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            top: 60%;
+            right: 15%;
+            animation-delay: -5s;
+        }
+
+        .shape-3 {
+            width: 120px;
+            height: 120px;
+            top: 30%;
+            right: 25%;
+            animation-delay: -7s;
+        }
+
+        .shape-4 {
+            width: 180px;
+            height: 180px;
+            bottom: 20%;
+            left: 25%;
+            animation-delay: -11s;
+        }
+
+        .curved-shape {
+            position: absolute;
+            width: 100px;
+            height: 50px;
+            background: linear-gradient(45deg, rgba(59, 130, 246, 0.2), rgba(37, 99, 235, 0.1));
+            border-radius: 100px 100px 0 0;
+            filter: blur(8px);
+            animation: floatCurved 15s infinite;
+        }
+
+        .curved-1 {
+            top: 20%;
+            right: 30%;
+            transform: rotate(45deg);
+            animation-delay: -3s;
+        }
+
+        .curved-2 {
+            bottom: 30%;
+            left: 20%;
+            transform: rotate(-30deg);
+            animation-delay: -8s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            25% {
+                transform: translate(20px, -20px) rotate(90deg);
+            }
+
+            50% {
+                transform: translate(-10px, 20px) rotate(180deg);
+            }
+
+            75% {
+                transform: translate(-20px, -10px) rotate(270deg);
+            }
+        }
+
+        @keyframes floatCurved {
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(45deg);
+            }
+
+            50% {
+                transform: translate(-20px, 20px) rotate(60deg);
+            }
+        }
+
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
@@ -19,55 +124,88 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        .social-button {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            padding: 8px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-button:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 
-<body id="background" class="relative min-h-screen bg-cover bg-center">
-    <div class="absolute inset-0 bg-blue-700 opacity-80 z-10"></div>
+<body class="min-h-screen bg-gradient-to-br from-blue-900 via-blue-700 to-blue-800 relative overflow-hidden">
+    <!-- Floating Shapes -->
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+    <div class="floating-shape shape-3"></div>
+    <div class="floating-shape shape-4"></div>
+    <div class="curved-shape curved-1"></div>
+    <div class="curved-shape curved-2"></div>
 
-    <div class="absolute top-4 left-4 z-[1000] flex items-center">
-        <a href="/" class="text-white font-semibold hover:underline flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="#FFFFFF" version="1.1" width="24px" height="24px"
-                viewBox="0 0 495.398 495.398" xml:space="preserve" class="mr-1">
-                <g>
-                    <g>
-                        <g>
-                            <path
-                                d="M487.083,225.514l-75.08-75.08V63.704c0-15.682-12.708-28.391-28.413-28.391c-15.669,0-28.377,12.709-28.377,28.391v29.941L299.31,37.74c-27.639-27.624-75.694-27.575-103.27,0.05L8.312,225.514c-11.082,11.104-11.082,29.071,0,40.158c11.087,11.101,29.089,11.101,40.172,0l187.71-187.729c6.115-6.083,16.893-6.083,22.976-0.018l187.742,187.747c5.567,5.551,12.825,8.312,20.081,8.312c7.271,0,14.541-2.764,20.091-8.312C498.17,254.586,498.17,236.619,487.083,225.514z" />
-                            <path
-                                d="M257.561,131.836c-5.454-5.451-14.285-5.451-19.723,0L72.712,296.913c-2.607,2.606-4.085,6.164-4.085,9.877v120.401c0,28.253,22.908,51.16,51.16,51.16h81.754v-126.61h92.299v126.61h81.755c28.251,0,51.159-22.907,51.159-51.159V306.79c0-3.713-1.465-7.271-4.085-9.877L257.561,131.836z" />
-                        </g>
-                    </g>
-                </g>
-            </svg>
-        </a>
-    </div>
+    <div class="relative z-20 flex items-center justify-center min-h-screen p-4">
+        <div class="glass-effect p-8 w-full max-w-md fade-in" id="register-form">
+            <!-- Logo -->
+            <div class="text-center mb-6">
+                <img src="{{ asset('images/fontbolt-removebg-preview.png') }}" alt="Alumni Network Logo"
+                    class="mx-auto h-12">
+            </div>
 
-    <div class="relative z-20 flex items-center justify-center min-h-screen">
-        <div class="p-8 rounded-lg max-w-md w-full fade-in" id="register-form">
             <h2 class="text-center text-2xl font-bold text-white mb-6">Register</h2>
 
-            @if(session('success'))
-                <div class="text-green-500 text-center mb-4">{{ session('success') }}</div>
-            @endif
-
-            @if($errors->any())
-                <div class="text-red-500 text-center mb-4">{{ $errors->first() }}</div>
-            @endif
-
-            <form action="{{ route('register') }}" method="POST">
+            <form action="{{ route('register') }}" method="POST" class="space-y-4">
                 @csrf
-                <input type="email" name="email" placeholder="Email"
-                    class="w-full px-4 py-2 mb-4 rounded-full text-blue-600 placeholder-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600"
-                    required>
-                <input type="password" name="password" placeholder="Password"
-                    class="w-full px-4 py-2 mb-6 rounded-full text-blue-600 placeholder-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600"
-                    required>
-                <div class="flex flex-wrap justify-center">
-                    <a href="{{ route('login') }}"
-                        class="text-white font-semibold py-2 px-4 rounded-lg hover:bg-opacity-75 transition duration-300 flex-1 min-w-[120px] mx-2">Login</a>
-                    <button type="submit"
-                        class="bg-white text-blue-600 font-semibold py-2 px-4 rounded-full hover:bg-opacity-75 transition duration-300 flex-1 min-w-[120px] mx-2">Register</button>
+                <div class="space-y-2">
+                    <label class="text-white text-sm">Email</label>
+                    <input type="email" name="email" placeholder="username@gmail.com"
+                        class="w-full px-4 py-2 rounded-lg bg-white/90 text-blue-900 placeholder-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        required>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="text-white text-sm">Password</label>
+                    <input type="password" name="password" placeholder="Password"
+                        class="w-full px-4 py-2 rounded-lg bg-white/90 text-blue-900 placeholder-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        required>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="text-white text-sm">Confirm Password</label>
+                    <input type="password" name="password_confirmation" placeholder="Confirm Password"
+                        class="w-full px-4 py-2 rounded-lg bg-white/90 text-blue-900 placeholder-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        required>
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-blue-900 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-800 transition duration-300">
+                    Register
+                </button>
+                <div class="text-center text-white/80 text-sm">
+                    or continue with
+                </div>
+
+                <div class="flex justify-center gap-4">
+                    <a href="#" class="social-button">
+                        <img src="https://www.google.com/favicon.ico" alt="Google" class="w-5 h-5">
+                    </a>
+                    <a href="#" class="social-button">
+                        <img src="https://github.com/favicon.ico" alt="GitHub" class="w-5 h-5">
+                    </a>
+                    <a href="#" class="social-button">
+                        <img src="https://facebook.com/favicon.ico" alt="Facebook" class="w-5 h-5">
+                    </a>
+                </div>
+                <div class="text-center text-white/80 text-sm">
+                    Already have an account?
+                    <a href="{{ route('login') }}" class="text-white hover:underline">Login here</a>
                 </div>
             </form>
         </div>
@@ -75,9 +213,6 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const backgroundElement = document.getElementById('background');
-            backgroundElement.style.backgroundImage = "url('{{ asset('images/loginbg.jpg') }}')";
-
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -92,5 +227,6 @@
         });
     </script>
 </body>
+
 
 </html>
